@@ -1,36 +1,48 @@
-# Pedir los números
-n1 = int(input("Ingresa el primer número: "))
-n2 = int(input("Ingresa el segundo número: "))
-n3 = int(input("Ingresa el tercer número: "))
+"""
+Reto: Mínimo y Máximo con N números
 
-# Determinar el máximo
-if n1 >= n2 and n1 >= n3:
-    maximo = n1
-elif n2 >= n1 and n2 >= n3:
-    maximo = n2
-else:
-    maximo = n3
+Objetivo:
+Permitir que el usuario ingrese una cantidad variable de números (N),
+determinar cuál es el número mínimo y máximo, y mostrar si cada número
+es par o impar.
 
-# Determinar el mínimo
-if n1 <= n2 and n1 <= n3:
-    minimo = n1
-elif n2 <= n1 and n2 <= n3:
-    minimo = n2
-else:
-    minimo = n3
+Este ejercicio demuestra el uso de listas y funciones integradas de Python
+como min() y max().
+"""
 
-# Mostrar máximo y mínimo
-print("El número máximo es:", maximo)
-print("El número mínimo es:", minimo)
+# Solicitar al usuario cuántos números desea ingresar
+cantidad = int(input("¿Cuántos números deseas ingresar?: "))
 
-# Función para saber si es par o impar
+# Lista para almacenar los números
+numeros = []
+
+# Leer los números uno por uno
+for i in range(cantidad):
+    num = int(input(f"Ingrese el número {i + 1}: "))
+    numeros.append(num)
+
+# Calcular el número mínimo y máximo usando funciones de Python
+minimo = min(numeros)
+maximo = max(numeros)
+
+# Mostrar resultados
+print("\nResultados:")
+print("Números ingresados:", numeros)
+print("Número mínimo:", minimo)
+print("Número máximo:", maximo)
+
+# Función para determinar si un número es par o impar
 def par_impar(num):
+    """
+    Determina si un número es par o impar.
+    Retorna una cadena con el resultado.
+    """
     if num % 2 == 0:
         return "par"
     else:
         return "impar"
 
-# Mostrar par o impar
-print("El número", n1, "es", par_impar(n1))
-print("El número", n2, "es", par_impar(n2))
-print("El número", n3, "es", par_impar(n3))
+# Mostrar si cada número es par o impar
+print("\nPar o impar:")
+for num in numeros:
+    print(f"El número {num} es {par_impar(num)}")
